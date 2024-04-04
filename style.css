@@ -1,0 +1,84 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+#dataContainer{
+    background: grey;
+    height: 100vh;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.box{
+    background: rgba(0, 0, 0, 0.5);
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+.nameBox{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.valueBox{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.valueBox h3{
+    font-size: 50px;
+}
+.valueBox .value{
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+     border-radius: 50%;
+     border: 10px solid purple;
+}
+
+@media screen and (max-width: 500px){
+    #dataContainer{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .box{
+        width: 90%;
+        height: 12%;
+        flex-direction: row;
+        /* justify-content: space-around; */
+        margin: 30px 0px;
+    }
+    .valueBox .value{
+        height: min-content;
+        width: min-content;
+        border: none;
+    }
+    .valueBox .value h3{
+        font-size: 40px;
+    }
+    .nameBox{
+        width: 70%;
+        height: 100%;
+   }
+   .nameBox .name{
+        text-align: left;
+        width: 80%;
+   }
+    .valueBox{
+        width: 30%;
+        height: 100%;
+    }
+    
+}
