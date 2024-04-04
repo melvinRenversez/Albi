@@ -1,1 +1,4 @@
-coucou
+tension : 12
+intensite : 5
+chaleur : 40
+consomation : 400

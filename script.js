@@ -14,10 +14,20 @@ function afficherDonnees() {
             return response.text();
         })
         .then(data => {
+            ligne = data.split('\n')
             const dataContainer = document.getElementById('dataContainer');
-            dataContainer.textContent = data;
+            while(dataContainer.firstChild){
+                dataContainer.removeChild(dataContainer.firstChild)
+            }
+            ligne.forEach(x => {
+                console.log(x)
+                const htmlLigne = document.createElement('p')
+                htmlLigne.innerHTML = x
+                dataContainer.appendChild(htmlLigne)
+            });
         })
         .catch(error => {
             console.error('Erreur:', error);
         });
 }
+afficherDonnees()
