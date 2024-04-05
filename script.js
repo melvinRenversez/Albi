@@ -21,10 +21,16 @@ function afficherDonnees() {
         .then(data => {
             ligne = data.split('\n')
             ligne.forEach(x => {
-                console.log(x)
-                const htmlLigne = document.createElement('p')
-                htmlLigne.innerHTML = x
-                dataContainer.appendChild(htmlLigne)
+                mots = x.split(':')
+                if(mots[0] === "tension "){
+                    tension.innerHTML = mots[1]
+                }else if(mots[0] === "intensite "){
+                    intensite.innerHTML = mots[1]
+                }else if(mots[0] === "chaleur "){
+                    chaleur.innerHTML = mots[1]
+                }else{
+                    consomation.innerHTML = mots[1]
+                }
             });
         })
         .catch(error => {

@@ -57,28 +57,31 @@
         width: 90%;
         height: 12%;
         flex-direction: row;
-        /* justify-content: space-around; */
         margin: 30px 0px;
+        position: relative;
+    }
+    .valueBox{
+        width: 40%;
+    }
+    .nameBox{
+        justify-content: start;
     }
     .valueBox .value{
         height: min-content;
         width: min-content;
         border: none;
+        border-radius: 0;
+        width: 100%;
     }
     .valueBox .value h3{
-        font-size: 40px;
+        font-size: 30px;
+        /* background: red; */
+        width: 100%;
+        text-align: right;
+        margin-right: 20px;
     }
-    .nameBox{
-        width: 70%;
-        height: 100%;
-   }
-   .nameBox .name{
+    .nameBox .name{
         text-align: left;
-        width: 80%;
-   }
-    .valueBox{
-        width: 30%;
-        height: 100%;
+        margin-left: 20px;
     }
-    
 }
