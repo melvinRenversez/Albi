@@ -39,13 +39,13 @@
     font-size: 50px;
 }
 .valueBox .value{
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     display: flex;
     justify-content: center;
     align-items: center;
-     border-radius: 50%;
-     border: 10px solid purple;
+    border-radius: 50%;
+    border: 10px solid purple;
 }
 
 @media screen and (max-width: 500px){

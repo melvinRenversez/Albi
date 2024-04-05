@@ -1,6 +1,11 @@
+const tension = document.getElementById('tensionValue');
+const intensite = document.getElementById('intensiteValue');
+const chaleur = document.getElementById('chaleurValue');
+const consomation = document.getElementById('consomationValue');
+
 setInterval(function() {
     afficherDonnees();
-}, 3000);
+}, 1000);
 
 
 function afficherDonnees() {
@@ -15,19 +20,22 @@ function afficherDonnees() {
         })
         .then(data => {
             ligne = data.split('\n')
-            const dataContainer = document.getElementById('dataContainer');
-            while(dataContainer.firstChild){
-                dataContainer.removeChild(dataContainer.firstChild)
-            }
             ligne.forEach(x => {
-                console.log(x)
-                const htmlLigne = document.createElement('p')
-                htmlLigne.innerHTML = x
-                dataContainer.appendChild(htmlLigne)
+                mots = x.split(':')
+                if(mots[0] === "tension "){
+                    tension.innerHTML = mots[1]
+                }else if(mots[0] === "intensite "){
+                    intensite.innerHTML = mots[1]
+                }else if(mots[0] === "chaleur "){
+                    chaleur.innerHTML = mots[1]
+                }else{
+                    consomation.innerHTML = mots[1]
+                }
             });
         })
         .catch(error => {
             console.error('Erreur:', error);
         });
+    console.log('update')
 }
 afficherDonnees()

@@ -1,4 +1,4 @@
-tension : 12
-intensite : 5
-chaleur : 40
-consomation : 400
+tension : 15
+intensite : 9
+chaleur : 50
+consomation : 300
