@@ -1,4 +1,5 @@
-tension : 30
-intensite : 20
-chaleur : 50
-consomation : 800
+tension : 10
+intensite : 200
+chaleur : 100
+consomation : 123
+consomation : 123
