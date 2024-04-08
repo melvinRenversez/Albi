@@ -28,16 +28,29 @@
     justify-content: center;
     align-items: center;
 }
+.bottom{
+    width: 100%;
+    height: 100%;
+}
 .nameBox .name{
     text-transform:uppercase;
     text-decoration: double;
 }
 .valueBox{
     width: 100%;
-    height: 100%;
+    height: 80%;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.inputBox{
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputBox input{
+    width: 80%;
 }
 .valueBox h3{
     font-size: 50px;
@@ -59,20 +72,34 @@
     #dataContainer{
         flex-direction: column;
         justify-content: center;
+        margin-top: -30px;
     }
     .box{
         width: 90%;
-        height: 12%;
-        flex-direction: row;
-        margin: 30px 0px;
+        height: 20%;
+        margin: 10px 0px;
         position: relative;
+    }
+    .bottom{
+        height: 60%;
+        width: 90%;
+        display: flex;
+        flex-direction: row-reverse;
+    }
+    .nameBox{
+        height: 40%;
+        justify-content: center;
+        width: 90%;
     }
     .valueBox{
         width: 40%;
+        height: 100%;
     }
-    .nameBox{
+    .inputBox{
         width: 60%;
-        justify-content: start;
+        height: 100%;
+        display: flex;
+        justify-content: center;
     }
     .valueBox .value{
         height: min-content;
@@ -83,14 +110,13 @@
     }
     .valueBox .value h3{
         font-size: 30px;
-        /* background: red; */
         width: 100%;
         text-align: right;
         margin-right: 20px;
     }
     .nameBox .name{
         text-align: left;
-        margin-left: 20px;
+        margin-left: 0px;
         font-size: 25px;
     }
 }

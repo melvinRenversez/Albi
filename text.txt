@@ -1,5 +1,0 @@
-tension : 10
-intensite : 200
-chaleur : 100
-consomation : 123
-consomation : 123

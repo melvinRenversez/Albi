@@ -1,41 +1,22 @@
-const tension = document.getElementById('tensionValue');
-const intensite = document.getElementById('intensiteValue');
-const chaleur = document.getElementById('chaleurValue');
-const consomation = document.getElementById('consomationValue');
+fps = 10
 
-setInterval(function() {
-    afficherDonnees();
-}, 1000);
+$(document).ready(function(){
+    setInterval(refreshData, 1000/fps);
+});
 
-
-function afficherDonnees() {
-    const cheminFichier = 'text.txt';
-
-    fetch(cheminFichier)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Erreur lors de la récupération du fichier');
-            }
-            return response.text();
-        })
-        .then(data => {
-            ligne = data.split('\n')
-            ligne.forEach(x => {
-                mots = x.split(':')
-                if(mots[0] === "tension "){
-                    tension.innerHTML = mots[1]
-                }else if(mots[0] === "intensite "){
-                    intensite.innerHTML = mots[1]
-                }else if(mots[0] === "chaleur "){
-                    chaleur.innerHTML = mots[1]
-                }else{
-                    consomation.innerHTML = mots[1]
-                }
-            });
-        })
-        .catch(error => {
-            console.error('Erreur:', error);
-        });
-    console.log('update')
+function refreshData() {
+    $.ajax({
+        url: 'data/get_data.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            $('#tensionValue').text(data.tension);
+            $('#intensiteValue').text(data.intensite);
+            $('#chaleurValue').text(data.chaleur);
+            $('#consomationValue').text(data.consommation);
+        },
+        error: function(xhr, status, error) {
+            console.error('Erreur lors de la récupération des données: ' + status + ' ' + error);
+        }
+    });
 }
-afficherDonnees()
