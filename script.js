@@ -1,4 +1,4 @@
-fps = 10
+fps = 5
 
 $(document).ready(function(){
     setInterval(refreshData, 1000/fps);
