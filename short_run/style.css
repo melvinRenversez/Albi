@@ -16,11 +16,33 @@ body{
     width: 50%;
     background: red;
 }
+#mapid{
+    height: 400px;
+    height: 100%;
+}
 .right{
     height: 100%;
     width: 50%;
-    background: blue;
+    background-image: url(../assets/img/camtare.jpg);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    position: relative;
 }
-#mapid{
-    height: 400px;
+.box{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 60%;
+    height: 20%;
+    border-radius: 20px;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.5);
+    box-shadow: 10px 10px 10px black;
+}
+.value{
+    font-size: 30px;
 }

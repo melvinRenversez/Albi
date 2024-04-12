@@ -1,6 +1,6 @@
 var carMarker;
     
-var mymap = L.map('mapid').setView([51.505, -0.09], 23);
+var mymap = L.map('mapid').setView([51.505, -0.09], 15);
     
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">Contributeurs OpenStreetMap</a>'
@@ -39,3 +39,9 @@ function refreshData() {
         }
     });
 }
+
+document.addEventListener('keydown', (e)=>{
+    if(e.keyCode == 8){
+        window.location.href ="../index.html"
+    }
+})

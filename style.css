@@ -7,11 +7,10 @@ body{
     height: 100vh;
 }
 .content{
-    background: red;
     height: 100%;
     width: 100%;
     position: relative;
-    background-image: url(assets/bg_index.jpg);
+    background-image: url(assets/img/bg_index.jpg);
     background-size: cover;
     background-position: center;
 }
