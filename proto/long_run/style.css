@@ -56,6 +56,10 @@ body{
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 10px 10px 10px black;
 }
+h1{
+    width: min-content;
+    font-size: 25px;
+}
 .value{
-    font-size: 30px;
+    font-size: 25px;
 }
