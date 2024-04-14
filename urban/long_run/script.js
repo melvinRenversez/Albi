@@ -1,6 +1,15 @@
+const chronoValue = document.getElementById('chronoValue');
+const buttonChrono = document.getElementById('buttonChrono');
+
 var carMarker;
     
 var mymap = L.map('mapid').setView([51.505, -0.09], 15);
+
+var chronoStart = false;
+
+var seconde = 0
+var minute = 0
+var heure = 0
 
 document.addEventListener('DOMContentLoaded', function() {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -41,13 +50,66 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     document.addEventListener('keydown', (e)=>{
+        console.log(e.keyCode)
         if(e.keyCode == 8){
             window.location.href ="../urban.html"
         }
+        if(e.keyCode == 80){
+            resetChrono()
+        }
     })
+
+    buttonChrono.addEventListener('click', ()=>{
+        console.log('click')
+        startChrono()
+    })
+
     setInterval(() => {
         refreshData();
     }, 500);
+
+    function updateChrono(){
+        chronoValue.innerHTML = heure + ":" + minute + ":" + seconde
+    }
+
+    function chronometre(){
+        seconde++
+        if(seconde == 60){
+            minute++
+            seconde = 0
+        }
+        if(minute == 60){
+            heure++
+            minute = 0
+        }
+        updateChrono()
+    }
+
+    function startChrono(){
+        if(!chronoStart){
+            loopChrono = setInterval(() => {
+                chronometre()
+            }, 1000);
+            buttonChrono.innerHTML = "⟲"
+            chronoStart = true;
+        }else{
+            seconde = 0;
+            minute = 0;
+            heure = 0;
+            updateChrono()
+        }
+    }
+
+    function resetChrono(){
+        clearInterval(loopChrono)
+        buttonChrono.innerHTML = "▶"
+        chronoStart = false;
+        heure = 0
+        minute = 0
+        seconde = 0 
+        chronoValue.innerHTML = "STOP"
+    }
+
     refreshData();
 });
 

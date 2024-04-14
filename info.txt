@@ -1,0 +1,8 @@
+Intensité 
+VMoyenne
+VInstantanée
+Puissance consommée
+Joulemètre 
+Tension
+latitude 
+longitude

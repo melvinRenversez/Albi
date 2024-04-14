@@ -52,7 +52,7 @@ body{
     width: 90%;
     height: 20%;
     border-radius: 20px;
-    padding: 40px;
+    padding: 30px;
     background: rgba(255, 255, 255, 0.9);
     box-shadow: 10px 10px 10px black;
 }
@@ -62,4 +62,25 @@ h1{
 }
 .value{
     font-size: 25px;
+}
+.chrono{
+    justify-content: space-around;
+    position: relative;
+    padding-right: 14%;
+}
+.chrono button{
+    position: absolute;
+    height: 30px;
+    width: 20px;
+    right: 0;
+    height: 100%;
+    width: 14%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+    font-weight: 1000;
+    font-size: 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.4);
+    outline: none;
+    cursor: pointer;
 }
