@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function refreshData() {
         $.ajax({
-            url: '../../data/proto/proto_get_data.php',
+            url: '../../data/urban/urban_get_data.php',
             type: 'GET',
             dataType: 'json',
             success: function(data) {
@@ -28,8 +28,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     var longitude = data[i].longitude;
                     $('#tensionValue').text(data[i].Tension)
                     $('#joulemetreValue').text(data[i].Joulemètre)
-                    $('#puisanceConsoValue').text(data[i].PConsommée)
                     $('#VInstantaneValue').text(data[i].VInstantanée)
+                    $('#puisanceConsoValue').text(data[i].PConsommée)
                     $('#VMoyenneValue').text(data[i].VMoyenne)
                     updateCarPosition(latitude, longitude)
                 }
@@ -42,11 +42,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     document.addEventListener('keydown', (e)=>{
         if(e.keyCode == 8){
-            window.location.href ="../proto.html"
+            window.location.href ="../urban.html"
         }
     })
     setInterval(() => {
         refreshData();
     }, 500);
+    refreshData();
 });
 

@@ -46,5 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(() => {
         refreshData();
     }, 500);
+    refreshData();
 });
 

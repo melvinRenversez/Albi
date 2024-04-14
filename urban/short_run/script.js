@@ -18,7 +18,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function refreshData() {
-        console.log('Refreshing data')
         $.ajax({
             url: '../../data/urban/urban_get_data.php',
             type: 'GET',
@@ -47,5 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
     setInterval(() => {
         refreshData();
     }, 500);
+    refreshData();
 });
 
