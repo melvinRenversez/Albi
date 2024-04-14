@@ -27,29 +27,16 @@ body{
     background-size: cover;
     background-position: center;
     display: flex;
-    position: relative;
-}
-.Rleft{
-    width: 50%;
-    position: relative;
-    display: flex;
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
-}
-.Rright{
-    width: 50%;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
 }
 .box{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 90%;
+    width: 60%;
     height: 20%;
     border-radius: 20px;
     padding: 40px;
