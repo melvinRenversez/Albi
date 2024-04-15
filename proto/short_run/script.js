@@ -18,6 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     function refreshData() {
+        console.log('refresh')
         $.ajax({
             url: '../../data/proto/proto_get_data.php',
             type: 'GET',

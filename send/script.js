@@ -40,105 +40,200 @@ document.addEventListener('keydown', (e)=>{
     }
 })
 
-PIValue.addEventListener('click', ()=>{
+PIValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PIText.innerHTML = PIValue.value
+    sendNewData()
 })
-PVMValue.addEventListener('click', ()=>{
+PVMValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PVMText.innerHTML = PVMValue.value
+    sendNewData()
 })
-PVIValue.addEventListener('click', ()=>{
+PVIValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PVIText.innerHTML = PVIValue.value
+    sendNewData()
 })
-PPValue.addEventListener('click', ()=>{
+PPValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PPText.innerHTML = PPValue.value
+    sendNewData()
 })
-PJValue.addEventListener('click', ()=>{
+PJValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PJText.innerHTML = PJValue.value
+    sendNewData()
 })
-PTValue.addEventListener('click', ()=>{
+PTValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PTText.innerHTML = PTValue.value
+    sendNewData()
 })
-PLTValue.addEventListener('click', ()=>{
+PLTValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PLTText.innerHTML = PLTValue.value
+    sendNewData()
 })
-PLGValue.addEventListener('click', ()=>{
+PLGValue.addEventListener('input', ()=>{
     console.log(PIValue.value)
     PLGText.innerHTML = PLGValue.value
+    sendNewData()
 })
-UIValue.addEventListener('click', ()=>{
+UIValue.addEventListener('input', ()=>{
     console.log(UIValue.value)
     UIText.innerHTML = UIValue.value
+    sendNewData()
 })
-UVMValue.addEventListener('click', ()=>{
+UVMValue.addEventListener('input', ()=>{
     console.log(UVMValue.value)
     UVMText.innerHTML = UVMValue.value
+    sendNewData()
 })
-UVIValue.addEventListener('click', ()=>{
+UVIValue.addEventListener('input', ()=>{
     console.log(UVIValue.value)
     UVIText.innerHTML = UVIValue.value
+    sendNewData()
 })
-UPValue.addEventListener('click', ()=>{
+UPValue.addEventListener('input', ()=>{
     console.log(UPValue.value)
     UPText.innerHTML = UPValue.value
+    sendNewData()
 })
-UJValue.addEventListener('click', ()=>{
+UJValue.addEventListener('input', ()=>{
     console.log(UJValue.value)
     UJText.innerHTML = UJValue.value
+    sendNewData()
 }) 
-UTValue.addEventListener('click', ()=>{
+UTValue.addEventListener('input', ()=>{
     console.log(UTValue.value)
     UTText.innerHTML = UTValue.value
+    sendNewData()
 })
-ULTValue.addEventListener('click', ()=>{
+ULTValue.addEventListener('input', ()=>{
     console.log(ULTValue.value)
     ULTText.innerHTML = ULTValue.value
+    sendNewData()
 })
-ULGValue.addEventListener('click', ()=>{
+ULGValue.addEventListener('input', ()=>{
     console.log(ULGValue.value)
     ULGText.innerHTML = ULGValue.value
-})
-
-document.addEventListener('DOMContentLoaded', ()=>{
-    PIText.innerHTML = PIValue.value
-    PPText.innerHTML = PPValue.value
-    PVIText.innerHTML = PVIValue.value
-    PVMText.innerHTML = PVMValue.value
-    PJText.innerHTML = PJValue.value
-    PTText.innerHTML = PTValue.value
-    PLTText.innerHTML = PLTValue.value
-    PLGText.innerHTML = PLGValue.value
-    
-    UIText.innerHTML = UIValue.value
-    UPText.innerHTML = UPValue.value
-    UVIText.innerHTML = UVIValue.value
-    UVMText.innerHTML = UVMValue.value
-    UJText.innerHTML = UJValue.value
-    UTText.innerHTML = UTValue.value
-    ULTText.innerHTML = ULTValue.value
-    ULGText.innerHTML = ULGValue.value
+    sendNewData()
 })
 
 
-var protoDataToSend = {
-    nouvelle
+function getUrbanData() {
+    $.ajax({
+        url: '../../data/urban/urban_get_data.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            for (var i = 0; i < data.length; i++) {
+                $('#UIText').text(data[i].Intensité)
+                $('#UIValue').val(data[i].Intensité)
+                $('#UVMText').text(data[i].VMoyenne)
+                $('#UVMValue').val(data[i].VMoyenne)
+                $('#UVIText').text(data[i].VInstantanée)
+                $('#UVIValue').val(data[i].VInstantanée)
+                $('#UPText').text(data[i].PConsommée)
+                $('#UPValue').val(data[i].PConsommée)
+                $('#UJText').text(data[i].Joulemètre)
+                $('#UJValue').val(data[i].Joulemètre)
+                $('#UTText').text(data[i].Tension)
+                $('#UTValue').val(data[i].Tension)
+                $('#ULTText').text(data[i].latitude)
+                $('#ULTValue').val(data[i].latitude)
+                $('#ULGText').text(data[i].longitude)
+                $('#ULGValue').val(data[i].longitude)
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Erreur lors de la récupération des données: ' + status + ' ' + error);
+        }
+    });
 }
 
-$.ajax({
-    url :'../data/proto/proto_send_data.php',
-    type : 'POST',
-    data : protoDataToSend,
-    dataType : 'json',
-    success : function(reponse){
-        console.log("donnes envoyer avec succees : ", reponse)
-    },
-    error : function(reponse){
-        console.log("donnes envoyer avec erreur : ", reponse)
+function getPortoData() {
+    $.ajax({
+        url: '../../data/proto/proto_get_data.php',
+        type: 'GET',
+        dataType: 'json',
+        success: function(data) {
+            for (var i = 0; i < data.length; i++) {
+                $('#PIText').text(data[i].Intensité)
+                $('#PIValue').val(data[i].Intensité)
+                $('#PVMText').text(data[i].VMoyenne)
+                $('#PVMValue').val(data[i].VMoyenne)
+                $('#PVIText').text(data[i].VInstantanée)
+                $('#PVIValue').val(data[i].VInstantanée)
+                $('#PPText').text(data[i].PConsommée)
+                $('#PPValue').val(data[i].PConsommée)
+                $('#PJText').text(data[i].Joulemètre)
+                $('#PJValue').val(data[i].Joulemètre)
+                $('#PTText').text(data[i].Tension)
+                $('#PTValue').val(data[i].Tension)
+                $('#PLTText').text(data[i].latitude)
+                $('#PLTValue').val(data[i].latitude)
+                $('#PLGText').text(data[i].longitude)
+                $('#PLGValue').val(data[i].longitude)
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Erreur lors de la récupération des données: ' + status + ' ' + error);
+        }
+    });
+}
+
+function sendNewData(){
+
+    var protoNewData = {
+        'nouvelle_intensite' : PIValue.value,
+        'nouvelle_VMoyenne' : PVMValue.value,
+        'nouvelle_VInstantane' : PVIValue.value,
+        'nouvelle_PConso' : PPValue.value,
+        'nouvelle_Joulemetre' : PJValue.value,
+        'nouvelle_Tension' : PTValue.value,
+        'nouvelle_latitude' : PLTValue.value,
+        'nouvelle_longitude' : PLGValue.value
     }
-})
+
+    var urbanNewData = {
+        'nouvelle_intensite' : UIValue.value,
+        'nouvelle_VMoyenne' : UVMValue.value,
+        'nouvelle_VInstantane' : UVIValue.value,
+        'nouvelle_PConso' : UPValue.value,
+        'nouvelle_Joulemetre' : UJValue.value,
+        'nouvelle_Tension' : UTValue.value,
+        'nouvelle_latitude' : ULTValue.value,
+        'nouvelle_longitude' : ULGValue.value
+    }
+
+    $.ajax({
+        url :'../data/proto/proto_send_data.php',
+        type : 'POST',
+        data : protoNewData,
+        dataType : 'json',
+        success : function(reponse){
+            console.log("donnes envoyer avec succees : ", reponse)
+        },
+        error : function(reponse){
+            console.log("donnes envoyer avec erreur : ", reponse)
+        }
+    })
+    
+    $.ajax({
+        url :'../data/urban/urban_send_data.php',
+        type : 'POST',
+        data : urbanNewData,
+        dataType : 'json',
+        success : function(reponse){
+            console.log("donnes envoyer avec succees : ", reponse)
+        },
+        error : function(reponse){
+            console.log("donnes envoyer avec erreur : ", reponse)
+        }
+    })
+} 
+
+getUrbanData()
+getPortoData()

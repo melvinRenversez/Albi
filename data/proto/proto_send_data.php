@@ -2,17 +2,21 @@
 // Vérification si des données sont envoyées
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Connexion à la base de données
-    $bdd = new PDO('sqlite:mesures.db');
+    $bdd = new PDO('sqlite:../database.db');
     
     // Récupération des nouvelles valeurs envoyées par le formulaire
-    $nouvelleTension = $_POST['nouvelle_tension'];
     $nouvelleIntensite = $_POST['nouvelle_intensite'];
-    $nouvelleChaleur = $_POST['nouvelle_chaleur'];
-    $nouvelleConsommation = $_POST['nouvelle_consommation'];
+    $nouvelleVMoyenne = $_POST['nouvelle_VMoyenne'];
+    $nouvelleVInstantane = $_POST['nouvelle_VInstantane'];
+    $nouvellePConso = $_POST['nouvelle_PConso'];
+    $nouvelleJoulemetre = $_POST['nouvelle_Joulemetre'];
+    $nouvelleTension = $_POST['nouvelle_Tension'];
+    $nouvelleLatitude = $_POST['nouvelle_latitude'];
+    $nouvelleLongitude = $_POST['nouvelle_longitude'];
 
     // Préparation de la requête SQL pour mettre à jour les données
-    $requete = $bdd->prepare('UPDATE mes_mesures SET tension = ?, intensite = ?, chaleur = ?, consommation = ?');
-    $requete->execute([$nouvelleTension, $nouvelleIntensite, $nouvelleChaleur, $nouvelleConsommation]);
+    $requete = $bdd->prepare('UPDATE proto SET Intensité = ?, VMoyenne = ?, VInstantanée = ?, PConsommée = ?, Joulemètre = ?, Tension = ?, latitude = ?, longitude = ?');
+    $requete->execute([$nouvelleIntensite, $nouvelleVMoyenne, $nouvelleVInstantane, $nouvellePConso, $nouvelleJoulemetre, $nouvelleTension, $nouvelleLatitude, $nouvelleLongitude]);
     
     // Répondre avec une confirmation au format JSON
     header('Content-Type: application/json');
